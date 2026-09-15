@@ -12,7 +12,7 @@ import {
   WalletCards,
   IndianRupee,
 } from "lucide-react";
-import { ccTermLoansData } from "../../data/cc-term-loans";
+import { ccTermLoansData } from "../../../data/cc-term-loans";
 
 export default function CCTermLoans() {
   const services = Array.isArray(ccTermLoansData?.services) ? ccTermLoansData.services : [];
