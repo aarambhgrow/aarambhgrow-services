@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import CCTermLoans from "../../components/services/CCTermLoans";
+import Hero from "../../components/services/cc-term-loans/CCTermLoansHero";
+import CCTermLoans from "../../components/services/cc-term-loans/CCTermLoans";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

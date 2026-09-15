@@ -38,7 +38,7 @@ export default function Home() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "AarambhGrow Group of Companies",
+    name: "AarambhGrow Services Private Limited",
     alternateName: "AarambhGrow",
     url: "https://aarambhgrow.co.in",
     logo: "https://aarambhgrow.co.in/images/white-logo.png",
@@ -47,10 +47,10 @@ export default function Home() {
     foundingDate: "2020",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway",
+      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway",
       addressLocality: "Ahmedabad",
       addressRegion: "Gujarat",
-      postalCode: "382470",
+      postalCode: "380060",
       addressCountry: "IN",
     },
     contactPoint: {
@@ -70,7 +70,7 @@ export default function Home() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "AarambhGrow Group of Companies",
+    name: "AarambhGrow Services Private Limited",
     image: "https://aarambhgrow.co.in/images/white-logo.png",
     url: "https://aarambhgrow.co.in",
     telephone: "+91-9998715799",
@@ -80,10 +80,10 @@ export default function Home() {
       "Business funding, government schemes, MSME loans, startup funding, company registration, GST, compliance and business support services for startups and MSMEs.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway",
+      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway",
       addressLocality: "Ahmedabad",
       addressRegion: "Gujarat",
-      postalCode: "382470",
+      postalCode: "380060",
       addressCountry: "IN",
     },
     geo: {
@@ -105,7 +105,7 @@ export default function Home() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "AarambhGrow Group of Companies",
+    name: "AarambhGrow Services Private Limited",
     url: "https://aarambhgrow.co.in",
     description: "Business funding, loans, government schemes and MSME support services in India.",
   };

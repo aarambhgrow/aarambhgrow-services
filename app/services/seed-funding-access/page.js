@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import SeedFundingAccess from "../../components/services/SeedFundingAccess";
+import Hero from "../../components/services/seed-funding-access/SeedFundingAccessHero";
+import SeedFundingAccess from "../../components/services/seed-funding-access/SeedFundingAccess";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

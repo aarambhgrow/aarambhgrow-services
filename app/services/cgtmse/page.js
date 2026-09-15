@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import CGTMSE from "../../components/services/CGTMSE";
+import Hero from "../../components/services/cgtmse/CGTMSEHero";
+import CGTMSE from "../../components/services/cgtmse/CGTMSE";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

@@ -482,11 +482,11 @@ export default function ContactFormWithMap() {
                   duration: 1.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                title="AarambhGrow Group of Companies Location Map"
-                src="https://www.google.com/maps?q=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470&output=embed"
-                className="absolute inset-0 h-full w-full border-0 invert brightness-90 contrast-125"
-                loading="lazy"
-              />
+                    title="AarambhGrow Services Private Limited Location Map"
+                    src="https://www.google.com/maps?q=813%2C%20Silver%20Radiance%204%2C%20Ovnaj%2C%20Bhavik%20Publication%2C%20SG%20Highway%2C%20Ahmedabad%2C%20Gujarat%2C%20380060&output=embed"
+                    className="absolute inset-0 h-full w-full border-0 invert brightness-90 contrast-125"
+                    loading="lazy"
+                  />
 
               {/* MAP OVERLAY */}
 
@@ -537,10 +537,10 @@ export default function ContactFormWithMap() {
                   </div>
 
                   <div className="min-w-0">
-                    <h4 className="text-xs font-black text-[#03254C] sm:text-sm">AarambhGrow Group of Companies</h4>
+                    <h4 className="text-xs font-black text-[#03254C] sm:text-sm">AarambhGrow Services Private Limited</h4>
 
                     <p className="mt-1 text-[10px] leading-5 text-slate-600 sm:text-[11px]">
-                      813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway, Gujarat 382470
+                      813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway, Ahmedabad, Gujarat, 380060
                     </p>
                   </div>
                 </div>
@@ -549,7 +549,7 @@ export default function ContactFormWithMap() {
                   whileHover={{
                     x: 3,
                   }}
-                  href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470"
+                  href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Radiance%204%2C%20Ovnaj%2C%20Bhavik%20Publication%2C%20SG%20Highway%2C%20Ahmedabad%2C%20Gujarat%2C%20380060"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex min-h-8 items-center gap-1 text-[11px] font-bold text-[#F26522]"

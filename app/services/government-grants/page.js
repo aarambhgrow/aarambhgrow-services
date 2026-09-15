@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import GovernmentGrants from "../../components/services/GovernmentGrants";
+import Hero from "../../components/services/government-grants/GovernmentGrantsHero";
+import GovernmentGrants from "../../components/services/government-grants/GovernmentGrants";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

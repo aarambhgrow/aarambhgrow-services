@@ -275,7 +275,7 @@ export default function Footer() {
               className="space-y-3.5 rounded-md border border-white/10 bg-white/[0.04] p-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
             >
               <p className="text-xs leading-[1.7] text-slate-300">
-                813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway, Gujarat 382470
+                813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway, Ahmedabad, Gujarat, 380060
               </p>
 
               <motion.a
@@ -285,7 +285,7 @@ export default function Footer() {
                 whileTap={{
                   scale: 0.98,
                 }}
-                href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470"
+                href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Radiance%204%2C%20Ovnaj%2C%20Bhavik%20Publication%2C%20SG%20Highway%2C%20Ahmedabad%2C%20Gujarat%2C%20380060"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn inline-flex w-full items-center justify-between rounded-md border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white transition-all duration-300 hover:border-[#F26522] hover:bg-[#F26522]"

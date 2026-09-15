@@ -277,14 +277,14 @@ export default function ContactMainSection() {
                     <span className="block text-[9px] font-bold uppercase tracking-wider text-slate-500">Visit Our Office</span>
 
                     <p className="mt-0.5 break-words text-[11px] font-semibold leading-[1.55] text-[#03254C]">
-                      813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway, Gujarat 382470
+                      813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway, Ahmedabad, Gujarat, 380060
                     </p>
                   </div>
                 </div>
 
                 {/* Navigation Button */}
                 <motion.a
-                  href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470"
+                  href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Radiance%204%2C%20Ovnaj%2C%20Bhavik%20Publication%2C%20SG%20Highway%2C%20Ahmedabad%2C%20Gujarat%2C%20380060"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{

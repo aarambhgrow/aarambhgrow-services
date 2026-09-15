@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import PMFME from "../../components/services/PMFME";
+import Hero from "../../components/services/pmfme/PMFMEHero";
+import PMFME from "../../components/services/pmfme/PMFME";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

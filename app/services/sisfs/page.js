@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import SISFS from "../../components/services/SISFS";
+import Hero from "../../components/services/sisfs/SISFSHero";
+import SISFS from "../../components/services/sisfs/SISFS";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

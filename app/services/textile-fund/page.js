@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import TextileFund from "../../components/services/TextileFund";
+import Hero from "../../components/services/textile-fund/TextileFundHero";
+import TextileFund from "../../components/services/textile-fund/TextileFund";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

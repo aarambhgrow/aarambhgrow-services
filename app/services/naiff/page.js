@@ -1,6 +1,6 @@
 import Navbar from "../../components/layout/Navbar";
-import Hero from "../../components/layout/ServicesHero";
-import NAIFF from "../../components/services/NAIFF";
+import Hero from "../../components/services/naiff/NAIFFHero";
+import NAIFF from "../../components/services/naiff/NAIFF";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
 

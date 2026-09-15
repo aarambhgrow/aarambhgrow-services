@@ -16,15 +16,15 @@ export default function ContactPage() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "AarambhGrow Group of Companies",
+    name: "AarambhGrow Services Private Limited",
     url: "https://aarambhgrow.co.in",
     telephone: "+91-9998715799",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway",
+      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway,",
       addressLocality: "Ahmedabad",
       addressRegion: "Gujarat",
-      postalCode: "382470",
+      postalCode: "380060",
       addressCountry: "IN",
     },
     areaServed: {
