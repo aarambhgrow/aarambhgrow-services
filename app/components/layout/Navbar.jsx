@@ -22,6 +22,18 @@ const COLORS = {
   green50: "#f0fdf4",
 };
 
+/* =========================================================
+   EXTERNAL WEBSITE LINKS
+   Replace these two URLs with your actual websites
+========================================================= */
+
+const ADVISORY_URL = "https://YOUR-ADVISORY-WEBSITE.com";
+const INFINITY_URL = "https://YOUR-INFINITY-WEBSITE.com";
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
 const SERVICES = [
   {
     label: "Startup Seed Fund",
@@ -97,6 +109,10 @@ const SERVICES = [
   },
 ];
 
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
 const NAV_LINKS = [
   {
     label: "Home",
@@ -116,6 +132,25 @@ const NAV_LINKS = [
     href: "/contact",
   },
 ];
+
+/* =========================================================
+   EXTERNAL NAVIGATION LINKS
+========================================================= */
+
+const EXTERNAL_LINKS = [
+  {
+    label: "Advisory",
+    href: ADVISORY_URL,
+  },
+  {
+    label: "Infinity",
+    href: INFINITY_URL,
+  },
+];
+
+/* =========================================================
+   DESKTOP NAV ITEM
+========================================================= */
 
 function DesktopNavItem({ link, onNavigate }) {
   const [open, setOpen] = useState(false);
@@ -307,13 +342,46 @@ function DesktopNavItem({ link, onNavigate }) {
 }
 
 /* =========================================================
+   DESKTOP EXTERNAL NAV ITEM
+========================================================= */
+
+function DesktopExternalLink({ link }) {
+  return (
+    <a
+      href={link.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative flex items-center gap-1 px-3 py-2.5 text-sm font-semibold transition-colors duration-200"
+      style={{
+        color: COLORS.navy,
+      }}
+    >
+      {link.label}
+
+      <ArrowUpRight
+        size={14}
+        strokeWidth={2}
+        className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+        style={{
+          color: COLORS.orange,
+        }}
+      />
+
+      <span
+        className="absolute bottom-0 left-3 right-3 h-[2px] origin-left scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
+        style={{
+          backgroundColor: COLORS.orange,
+        }}
+      />
+    </a>
+  );
+}
+
+/* =========================================================
    MOBILE NAV ITEM
    - ONE COLUMN
-   - ALL 12 SERVICES
+   - ALL SERVICES
    - SERVICE NAMES ONLY
-   - NO SERVICE ICONS
-   - NO DESCRIPTIONS
-   - COMPACT ROWS
 ========================================================= */
 
 function MobileNavItem({ link, onNavigate }) {
@@ -351,7 +419,6 @@ function MobileNavItem({ link, onNavigate }) {
         borderColor: COLORS.slate200,
       }}
     >
-      {/* Services Header */}
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
@@ -372,7 +439,6 @@ function MobileNavItem({ link, onNavigate }) {
         />
       </button>
 
-      {/* Mobile Services */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
@@ -405,10 +471,8 @@ function MobileNavItem({ link, onNavigate }) {
                     color: COLORS.navy,
                   }}
                 >
-                  {/* SERVICE NAME ONLY */}
                   <span className="text-xs font-bold">{service.label}</span>
 
-                  {/* Only navigation arrow */}
                   <ArrowUpRight
                     size={13}
                     className="shrink-0"
@@ -426,11 +490,43 @@ function MobileNavItem({ link, onNavigate }) {
   );
 }
 
+/* =========================================================
+   MOBILE EXTERNAL LINK
+========================================================= */
+
+function MobileExternalLink({ link, onNavigate }) {
+  return (
+    <a
+      href={link.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onNavigate}
+      className="flex items-center justify-between border-b py-4 text-base font-bold"
+      style={{
+        borderColor: COLORS.slate200,
+        color: COLORS.navy,
+      }}
+    >
+      <span>{link.label}</span>
+
+      <ArrowUpRight
+        size={17}
+        style={{
+          color: COLORS.orange,
+        }}
+      />
+    </a>
+  );
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
 export default function Navbar() {
   const pathname = usePathname();
 
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -455,7 +551,6 @@ export default function Navbar() {
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
-
       document.body.style.touchAction = "none";
     } else {
       document.body.style.overflow = "";
@@ -483,7 +578,10 @@ export default function Navbar() {
       }}
     >
       <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+        {/* =====================================================
+            LOGO
+        ====================================================== */}
+
         <Link href="/" onClick={closeMobileMenu} className="relative z-50 flex shrink-0 items-center">
           <Image
             src="/images/logo.png"
@@ -495,14 +593,26 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* =====================================================
+            DESKTOP NAVIGATION
+        ====================================================== */}
+
         <nav className="hidden items-center lg:flex">
           {NAV_LINKS.map((link) => (
             <DesktopNavItem key={link.href} link={link} onNavigate={closeMobileMenu} />
           ))}
+
+          {/* Advisory */}
+          <DesktopExternalLink link={EXTERNAL_LINKS[0]} />
+
+          {/* Infinity */}
+          <DesktopExternalLink link={EXTERNAL_LINKS[1]} />
         </nav>
 
-        {/* Desktop Actions */}
+        {/* =====================================================
+            DESKTOP ACTIONS
+        ====================================================== */}
+
         <div className="hidden items-center gap-5 lg:flex">
           <a href="tel:+919998715799" className="group flex items-center gap-2.5">
             <span
@@ -536,7 +646,10 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* GET CONSULTATION BUTTON - ORIGINAL THEME */}
+          {/* ===================================================
+              GET CONSULTATION BUTTON
+          ==================================================== */}
+
           <Link
             href="/contact"
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full px-6 py-2.5 text-sm font-bold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-4"
@@ -575,7 +688,10 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* =====================================================
+            MOBILE MENU BUTTON
+        ====================================================== */}
+
         <button
           type="button"
           onClick={() => setMobileOpen((value) => !value)}
@@ -635,7 +751,10 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* =======================================================
+          MOBILE NAVIGATION
+      ======================================================== */}
+
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -679,11 +798,23 @@ export default function Navbar() {
               }}
             >
               <nav className="mx-auto max-w-2xl">
+                {/* Main Navigation */}
                 {NAV_LINKS.map((link) => (
                   <MobileNavItem key={link.href} link={link} onNavigate={closeMobileMenu} />
                 ))}
 
-                {/* Mobile Contact Card */}
+                {/* =================================================
+                    MOBILE EXTERNAL LINKS
+                ================================================== */}
+
+                <MobileExternalLink link={EXTERNAL_LINKS[0]} onNavigate={closeMobileMenu} />
+
+                <MobileExternalLink link={EXTERNAL_LINKS[1]} onNavigate={closeMobileMenu} />
+
+                {/* =================================================
+                    MOBILE CONTACT CARD
+                ================================================== */}
+
                 <div
                   className="mt-6 rounded-md border p-5"
                   style={{
