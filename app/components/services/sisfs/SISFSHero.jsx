@@ -2,153 +2,112 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageCircle, Lightbulb, Settings, BarChart3, FileCheck2, ShieldCheck, Landmark, Rocket } from "lucide-react";
+import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
+const TRUST_POINTS = ["Scheme Readiness", "Prototype Support", "Application Preparation"];
+
 export default function SISFS() {
-  const trustPoints = ["Scheme Readiness", "Prototype Support", "Application Preparation"];
-
-  const journey = [
-    {
-      icon: Lightbulb,
-      title: "Idea",
-      subtitle: "Prototype",
-      color: "#157327",
-      bg: "bg-[#157327]/10",
-    },
-    {
-      icon: Settings,
-      title: "Prototype",
-      subtitle: "Validation",
-      color: "#2563EB",
-      bg: "bg-blue-500/10",
-    },
-    {
-      icon: BarChart3,
-      title: "Validation",
-      subtitle: "Market",
-      color: "#F26522",
-      bg: "bg-[#F26522]/10",
-    },
-  ];
-
   return (
-    <section className="relative min-h-[500px] w-full overflow-hidden bg-[#F8FAFC] font-sans sm:min-h-[520px] lg:min-h-[460px]">
-      {/* SISFS Background Image — KEEP THIS */}
+    <section className="relative min-h-0 w-full overflow-hidden bg-[#E8F9FF] font-sans sm:min-h-[520px] lg:min-h-[460px]">
+      {/* Background Image (Desktop/Tablet) — Untouched */}
       <Image
         src="/images/SISFS.png"
         alt="SISFS Funding Support for Innovation-Led Startups"
         fill
         priority
-        sizes="100vw"
-        className="object-cover object-center"
+        sizes="(max-width: 1024px) 35vw, (max-width: 1280px) 30vw, 28vw"
+        className="hidden object-contain object-right scale-[0.85] origin-right pr-6 sm:block"
       />
 
-      {/* Very light readability layer — background remains visible */}
+      {/* Readability layer */}
       <div className="absolute inset-0 bg-white/5" />
 
-      {/* Main Container — SAME WIDTH & HEIGHT */}
-      <div className="relative z-10 mx-auto flex min-h-[500px] w-full max-w-[1340px] items-center px-5 py-10 sm:px-8 sm:py-12 lg:min-h-[460px] lg:px-12 xl:px-16">
-        <div className="w-full max-w-[760px]">
+      {/* Main Container */}
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-[1340px] flex-col items-start px-5 pt-8 pb-0 sm:flex-row sm:items-center sm:px-8 sm:py-12 lg:min-h-[460px] lg:px-12 xl:px-16">
+        <motion.div
+          className="w-full max-w-[760px] shrink-0"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           {/* Badge */}
-          <motion.div
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#03254C]/10 bg-white/90 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#03254C] shadow-sm backdrop-blur-sm sm:text-[11px]"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <span className="h-2 w-2 rounded-full bg-[#157327]" />
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#03254C]/10 bg-white px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#03254C] shadow-xs sm:mb-4 sm:px-3.5 sm:text-[11px]">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#157327]" />
             STARTUP INDIA
-          </motion.div>
+          </div>
 
           {/* Heading */}
-          <motion.h1
-            className="max-w-[680px] text-[30px] font-extrabold leading-[1.1] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-          >
-            SISFS Funding Support for <span className="text-[#157327]">Innovation-Led Startups</span>
-          </motion.h1>
+          <h1 className="max-w-[680px] text-[26px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#03254C] sm:text-[36px] lg:text-[38px]">
+            SISFS Funding Support for <br className="sm:hidden" />
+            <span className="text-[#157327]">Innovation-Led Startups</span>
+          </h1>
 
-          {/* Accent */}
-          <motion.div
-            className="mt-3 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#F26522] to-[#157327]"
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            style={{ transformOrigin: "left" }}
-          />
+          {/* Gradient Divider */}
+          <div className="mt-2.5 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#F26522] to-[#157327] sm:mt-3" />
 
-          {/* Highlight */}
-          <motion.h2
-            className="mt-3 text-base font-bold leading-tight text-[#F26522] sm:text-lg"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-          >
-            Startup India Seed Fund Scheme
-          </motion.h2>
+          {/* Subtitle */}
+          <h2 className="mt-2.5 text-[14px] font-bold leading-tight text-[#F26522] sm:mt-3 sm:text-lg">Startup India Seed Fund Scheme</h2>
 
           {/* Description */}
-          <motion.p
-            className="mt-3 max-w-[620px] text-[12px] leading-[1.6] text-[#475569] sm:text-[13px] lg:text-[14px]"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.42 }}
-          >
-            Prepare your startup for the Startup India Seed Fund Scheme with structured support for eligibility review, proof of concept,
-            prototype development, product trials, market validation, and funding documentation.
-          </motion.p>
+          <p className="mt-2 text-[12px] leading-[1.5] text-[#64748B] sm:mt-3 sm:text-[13px] sm:leading-[1.6] lg:text-[14px]">
+            Prepare your startup for the Startup India Seed Fund Scheme with structured support <br />
+            for eligibility review, proof of concept, prototype development, product trials, market validation <br /> 
+            and funding documentation.
+          </p>
 
-          {/* Trust Points */}
-          <motion.div
-            className="mt-4 flex flex-wrap gap-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.48 }}
-          >
-            {trustPoints.map((item) => (
+          {/* Trust Points (Mobile Stacked Cards / Desktop Inline Badges) */}
+          <div className="mt-4 flex flex-col gap-2.5 sm:mt-5 sm:flex-row sm:flex-wrap sm:gap-2.5">
+            {TRUST_POINTS.map((item) => (
               <div
                 key={item}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[#E2E8F0] bg-white/90 px-3 py-1.5 text-[10px] font-semibold text-[#03254C] shadow-sm backdrop-blur-sm sm:text-[11px]"
+                className="flex w-full items-center gap-3.5 rounded-xl bg-white p-2.5 shadow-xs border border-[#E2E8F0]/60 sm:w-auto sm:inline-flex sm:gap-2.5 sm:rounded-lg sm:bg-white/95 sm:px-3 sm:py-2.5 sm:text-xs sm:shadow-sm"
               >
-                <ShieldCheck className="h-3.5 w-3.5 text-[#157327]" />
-                {item}
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E8F9FF] text-[#157327] sm:h-auto sm:w-auto sm:bg-transparent">
+                  <ShieldCheck className="h-5 w-5 sm:h-4 sm:w-4" />
+                </div>
+                <div className="flex flex-col sm:block">
+                  <span className="text-[13px] font-bold text-[#03254C] sm:text-xs">{item}</span>
+                  <span className="text-[11px] text-[#64748B] sm:hidden">Guidance & Structured Support</span>
+                </div>
               </div>
             ))}
-          </motion.div>
+          </div>
 
-          {/* CTA */}
-          <motion.div
-            className="mt-5 flex flex-wrap items-center gap-3"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.58 }}
-          >
+          {/* Call to Action Buttons */}
+          <div className="mt-5 flex flex-col gap-3 sm:mt-5 sm:flex-row sm:flex-wrap sm:items-center">
+            {/* Primary Button */}
             <Link
               href="#sisfs-content"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#F26522] px-5 py-2.5 text-xs font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#df5516] hover:shadow-lg sm:px-6 sm:py-3 sm:text-sm"
+              className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[#F26522] py-3.5 text-[13px] font-bold text-white shadow-md transition-all duration-300 hover:bg-[#df5516] sm:w-auto sm:inline-flex sm:px-6 sm:py-3 sm:text-sm"
             >
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-
               <span className="relative">Check SISFS Readiness</span>
-
-              <ArrowRight className="relative h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
 
+            {/* Desktop-only secondary button */}
             <Link
               href="/contact-us"
-              className="group inline-flex items-center gap-2 rounded-full border border-[#03254C]/60 bg-white/90 px-5 py-2.5 text-xs font-bold text-[#03254C] shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md sm:px-6 sm:py-3 sm:text-sm"
+              className="hidden group inline-flex items-center gap-2 rounded-full border border-[#03254C]/60 bg-white/90 px-6 py-3 text-sm font-bold text-[#03254C] shadow-sm backdrop-blur-sm transition-all duration-300 hover:bg-white sm:inline-flex"
             >
-              Discuss Your Startup
-              <MessageCircle className="h-3.5 w-3.5 transition-transform duration-300 group-hover:scale-110" />
+              <span>Discuss Your Startup</span>
+              <MessageCircle className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             </Link>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
-        {/* Right-side content is intentionally NOT added here.
-            Your SISFS.png already contains the complete visual. */}
+        {/* Mobile Graphic — Matches Screenshot Layout */}
+        <div className="relative mt-6 flex w-full justify-center pt-2 sm:hidden">
+          <Image
+            src="/images/SISFS.png"
+            alt="SISFS Funding Support for Innovation-Led Startups"
+            width={650}
+            height={500}
+            priority
+            sizes="100vw"
+            className="h-auto w-full max-w-[340px] object-contain"
+          />
+        </div>
       </div>
     </section>
   );

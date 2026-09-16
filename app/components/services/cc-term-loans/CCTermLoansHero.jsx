@@ -2,179 +2,136 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, MessageCircle, Coins, Building2, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function CCTermLoans() {
-  const trustPoints = ["Working Capital", "Asset Finance", "Expansion Finance"];
+const TRUST_POINTS = [
+  {
+    title: "Working Capital",
+    description: "For stock & operational cash flow",
+    icon: Coins,
+    color: "text-[#157327]",
+    bg: "bg-[#157327]/10",
+  },
+  {
+    title: "Asset Finance",
+    description: "For plant, machinery & equipment",
+    icon: Building2,
+    color: "text-[#F26522]",
+    bg: "bg-[#F26522]/10",
+  },
+  {
+    title: "Expansion Finance",
+    description: "Scale infrastructure & operations",
+    icon: TrendingUp,
+    color: "text-[#157327]",
+    bg: "bg-[#157327]/10",
+  },
+];
 
+export default function CCTermLoans() {
   return (
-    <section className="relative min-h-[500px] w-full overflow-hidden bg-[#F8FAFC] font-sans sm:min-h-[520px] lg:min-h-[460px]">
-      {/* Background Image */}
-      <motion.div
-        initial={{ scale: 1.025 }}
-        animate={{ scale: 1 }}
-        transition={{
-          duration: 1.2,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="absolute inset-0"
-      >
+    <section className="relative min-h-0 w-full overflow-hidden bg-[#EFFFFD] font-sans sm:min-h-[520px] lg:min-h-[460px]">
+      {/* Background Image Container (Desktop/Tablet) */}
+      <div className="absolute right-0 top-0 hidden h-full w-[60%] sm:block lg:w-[50%] xl:w-[45%]">
         <Image
           src="/images/cc-term-loans.png"
           alt="Cash Credit and Term Loan Finance for Business"
           fill
           priority
-          sizes="100vw"
-          className="object-cover object-center"
+          sizes="(max-width: 1024px) 60vw, (max-width: 1280px) 50vw, 45vw"
+          className="object-contain object-right scale-110 origin-right pr-6"
         />
-      </motion.div>
+      </div>
 
       {/* Light Readability Layer */}
       <div className="absolute inset-0 bg-white/5" />
 
       {/* Main Container */}
-      <div className="relative z-10 mx-auto flex min-h-[500px] w-full max-w-[1340px] items-center px-5 py-10 sm:px-8 sm:py-12 lg:min-h-[460px] lg:px-12 xl:px-16">
-        <div className="w-full max-w-[760px]">
+      <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-[1340px] flex-col items-center px-5 pt-6 pb-0 sm:min-h-[500px] sm:flex-row sm:px-8 sm:py-12 lg:min-h-[460px] lg:px-12 xl:px-16">
+        <motion.div
+          className="w-full max-w-[760px] shrink-0"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: -25 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.6,
-              ease: "easeOut",
-            }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#03254C]/10 bg-white/90 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#03254C] shadow-sm backdrop-blur-sm sm:text-[11px]"
-          >
-            <motion.span
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{
-                delay: 0.25,
-                duration: 0.35,
-              }}
-              className="h-2 w-2 rounded-full bg-[#157327]"
-            />
-            Business Finance
-          </motion.div>
-
-          {/* Heading */}
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ opacity: 0, y: 35 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.12,
-                duration: 0.75,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="max-w-[680px] text-[30px] font-extrabold leading-[1.1] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]"
-            >
-              Choose the Right Finance for{" "}
-              <span className="relative text-[#157327]">
-                Working Capital & Expansion
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{
-                    delay: 0.8,
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                  className="absolute -bottom-1 left-0 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-[#F26522] to-[#157327]"
-                />
-              </span>
-            </motion.h1>
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#03254C]/10 bg-white/95 px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-[#03254C] shadow-sm backdrop-blur-sm sm:mb-4 sm:px-3.5 sm:text-[11px]">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#157327]" />
+            BUSINESS FINANCE
           </div>
 
-          {/* Accent */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 48 }}
-            transition={{
-              delay: 0.75,
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            className="mt-3 h-[3px] rounded-full bg-gradient-to-r from-[#F26522] to-[#157327]"
-          />
+          {/* Heading */}
+          <h1 className="max-w-[680px] text-[24px] font-extrabold leading-[1.15] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]">
+            Choose the Right Finance for <span className="text-[#157327]">Working Capital & Expansion</span>
+          </h1>
+
+          {/* Accent Line */}
+          <div className="mt-2 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#F26522] to-[#157327] sm:mt-3" />
+
+          {/* Subtitle */}
+          <h2 className="mt-2.5 text-[13px] font-bold leading-tight text-[#F26522] sm:mt-3 sm:text-lg">
+            Cash Credit (CC) + <span className="text-[#03254C]">Term Loan Solutions</span>
+          </h2>
 
           {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.35,
-              duration: 0.6,
-            }}
-            className="mt-4 max-w-[620px] text-[12px] leading-[1.6] text-[#475569] sm:text-[13px] lg:text-[14px]"
-          >
-            Structured support for businesses evaluating Cash Credit and Term Loan
-            <br />
-             requirements for inventory, receivables, operations, machinery, equipment,
-            <br />
-             infrastructure, and business expansion.
-          </motion.p>
+          <p className="mt-2 max-w-[620px] text-[11px] leading-[1.45] text-[#475569] sm:mt-3 sm:text-[13px] sm:leading-[1.6] lg:text-[14px]">
+            Structured support for businesses evaluating Cash Credit and Term Loan requirements for inventory, receivables, operations,
+            machinery, equipment, infrastructure, and business expansion.
+          </p>
 
-          {/* Trust Points */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {trustPoints.map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  delay: 0.5 + index * 0.1,
-                  duration: 0.45,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  y: -2,
-                  scale: 1.02,
-                }}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-[#E2E8F0] bg-white/90 px-3 py-1.5 text-[10px] font-semibold text-[#03254C] shadow-sm backdrop-blur-sm transition-shadow duration-300 hover:shadow-md sm:text-[11px]"
+          {/* Feature Cards Grid */}
+          <div className="mt-4 grid w-full max-w-[600px] grid-cols-1 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-2.5">
+            {TRUST_POINTS.map(({ title, description, icon: Icon, color, bg }) => (
+              <div
+                key={title}
+                className="group flex items-center gap-3 rounded-xl border border-[#E2E8F0] bg-white/95 px-3.5 py-2.5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-[2px] hover:shadow-md sm:gap-2.5 sm:rounded-lg sm:px-3 sm:py-2.5"
               >
-                <ShieldCheck className="h-3.5 w-3.5 text-[#157327] transition-transform duration-300 group-hover:scale-110" />
-
-                {item}
-              </motion.div>
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sm:h-8 sm:w-8 ${bg}`}>
+                  <Icon className={`h-4 w-4 sm:h-3.5 sm:w-3.5 ${color}`} strokeWidth={2} />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-[12px] font-bold leading-tight text-[#03254C] sm:text-xs">{title}</h3>
+                  <p className="mt-0.5 text-[9.5px] leading-tight text-[#64748B] sm:text-[10px]">{description}</p>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.72,
-              duration: 0.6,
-              ease: "easeOut",
-            }}
-            className="mt-5 flex flex-wrap items-center gap-3"
-          >
+          {/* CTA Buttons */}
+          <div className="mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row sm:flex-wrap sm:items-center">
             {/* Primary CTA */}
             <Link
               href="#cc-term-loans-content"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#F26522] px-5 py-2.5 text-xs font-bold text-white shadow-md transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#df5516] hover:shadow-[0_8px_20px_rgba(242,101,34,0.28)] active:translate-y-0 sm:px-6 sm:py-3 sm:text-sm"
+              className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-[#F26522] px-6 py-3 text-[12px] font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#df5516] hover:shadow-lg sm:w-auto sm:text-sm"
             >
-              {/* Shine */}
-              <span className="absolute inset-y-0 -left-[80%] w-[45%] rotate-[20deg] bg-white/25 blur-sm transition-all duration-700 ease-out group-hover:left-[130%]" />
-
-              <span className="relative z-10">Assess Your Finance Need</span>
-
-              <ArrowRight className="relative z-10 h-3.5 w-3.5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <span className="relative">Assess Your Finance Need</span>
+              <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
 
-            {/* Secondary CTA */}
+            {/* Secondary CTA (Desktop Only) */}
             <Link
               href="/contact-us"
-              className="group inline-flex items-center gap-2 rounded-full border border-[#03254C]/60 bg-white/90 px-5 py-2.5 text-xs font-bold text-[#03254C] shadow-sm backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#03254C] hover:bg-white hover:shadow-[0_8px_18px_rgba(3,37,76,0.12)] active:translate-y-0 sm:px-6 sm:py-3 sm:text-sm"
+              className="hidden group inline-flex items-center gap-2 rounded-full border border-[#03254C]/60 bg-white/90 px-6 py-3 text-sm font-bold text-[#03254C] shadow-sm backdrop-blur-sm transition-all duration-300 hover:bg-white sm:inline-flex"
             >
               <span>Discuss Your Finance Needs</span>
-
-              <MessageCircle className="h-3.5 w-3.5 transition-all duration-300 group-hover:translate-x-0.5 group-hover:scale-110" />
+              <MessageCircle className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
             </Link>
-          </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Mobile Graphic */}
+        <div className="relative mt-6 flex w-full justify-center sm:hidden">
+          <Image
+            src="/images/cc-term-loans.png"
+            alt="Cash Credit and Term Loan Finance for Business"
+            width={650}
+            height={500}
+            priority
+            sizes="82vw"
+            className="h-auto w-[82vw] max-w-[330px] object-contain"
+          />
         </div>
       </div>
     </section>

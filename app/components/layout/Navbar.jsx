@@ -4,20 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  ChevronDown,
-  Menu,
-  Phone,
-  X,
-  ArrowUpRight,
-  Building2,
-  BadgeCheck,
-  Banknote,
-  Sparkles,
-  Workflow,
-  Scale,
-  CheckCircle2,
-} from "lucide-react";
+import { ChevronDown, Menu, Phone, X, ArrowUpRight, Building2, BadgeCheck, Banknote, Sparkles, Workflow, Scale } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const COLORS = {
@@ -147,7 +134,9 @@ function DesktopNavItem({ link, onNavigate }) {
 
         <span
           className="absolute bottom-0 left-4 right-4 h-[2px] origin-left scale-x-0 transition-transform duration-200 group-hover:scale-x-100"
-          style={{ backgroundColor: COLORS.orange }}
+          style={{
+            backgroundColor: COLORS.orange,
+          }}
         />
       </Link>
     );
@@ -178,19 +167,30 @@ function DesktopNavItem({ link, onNavigate }) {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.18 }}
+            initial={{
+              opacity: 0,
+              y: 8,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 8,
+            }}
+            transition={{
+              duration: 0.18,
+            }}
             className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4"
           >
             <div
               className="w-[1060px] max-w-[calc(100vw-32px)] overflow-hidden rounded-md border bg-white shadow-[0_25px_70px_rgba(3,37,76,0.16)]"
-              style={{ borderColor: COLORS.slate200 }}
+              style={{
+                borderColor: COLORS.slate200,
+              }}
             >
-              {/* Main content */}
               <div className="flex">
-                {/* All services */}
                 <div className="flex-1 p-6">
                   <div className="grid grid-cols-3 gap-3">
                     {link.children.map((service) => {
@@ -223,18 +223,30 @@ function DesktopNavItem({ link, onNavigate }) {
 
                             <div className="min-w-0 flex-1">
                               <div className="flex items-start justify-between gap-2">
-                                <h4 className="text-sm font-bold leading-5 transition-colors" style={{ color: COLORS.navy }}>
+                                <h4
+                                  className="text-sm font-bold leading-5 transition-colors"
+                                  style={{
+                                    color: COLORS.navy,
+                                  }}
+                                >
                                   {service.label}
                                 </h4>
 
                                 <ArrowUpRight
                                   size={15}
                                   className="shrink-0 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
-                                  style={{ color: COLORS.orange }}
+                                  style={{
+                                    color: COLORS.orange,
+                                  }}
                                 />
                               </div>
 
-                              <p className="mt-1.5 text-[11px] leading-[1.55]" style={{ color: COLORS.slate500 }}>
+                              <p
+                                className="mt-1.5 text-[11px] leading-[1.55]"
+                                style={{
+                                  color: COLORS.slate500,
+                                }}
+                              >
                                 {service.description}
                               </p>
                             </div>
@@ -246,7 +258,6 @@ function DesktopNavItem({ link, onNavigate }) {
                 </div>
               </div>
 
-              {/* Bottom bar */}
               <div
                 className="flex items-center justify-between border-t px-7 py-3.5"
                 style={{
@@ -255,9 +266,19 @@ function DesktopNavItem({ link, onNavigate }) {
                 }}
               >
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS.green }} />
+                  <span
+                    className="h-2 w-2 rounded-full"
+                    style={{
+                      backgroundColor: COLORS.green,
+                    }}
+                  />
 
-                  <span className="text-xs font-medium" style={{ color: COLORS.slate600 }}>
+                  <span
+                    className="text-xs font-medium"
+                    style={{
+                      color: COLORS.slate600,
+                    }}
+                  >
                     Business support for startups, MSMEs & entrepreneurs
                   </span>
                 </div>
@@ -269,9 +290,12 @@ function DesktopNavItem({ link, onNavigate }) {
                     onNavigate?.();
                   }}
                   className="flex items-center gap-1 text-xs font-bold"
-                  style={{ color: COLORS.navy }}
+                  style={{
+                    color: COLORS.navy,
+                  }}
                 >
-                
+                  View All
+                  <ArrowUpRight size={14} />
                 </Link>
               </div>
             </div>
@@ -281,6 +305,16 @@ function DesktopNavItem({ link, onNavigate }) {
     </div>
   );
 }
+
+/* =========================================================
+   MOBILE NAV ITEM
+   - ONE COLUMN
+   - ALL 12 SERVICES
+   - SERVICE NAMES ONLY
+   - NO SERVICE ICONS
+   - NO DESCRIPTIONS
+   - COMPACT ROWS
+========================================================= */
 
 function MobileNavItem({ link, onNavigate }) {
   const [open, setOpen] = useState(false);
@@ -298,91 +332,92 @@ function MobileNavItem({ link, onNavigate }) {
           color: COLORS.navy,
         }}
       >
-        {link.label}
+        <span>{link.label}</span>
 
-        <ArrowUpRight size={17} style={{ color: COLORS.orange }} />
+        <ArrowUpRight
+          size={17}
+          style={{
+            color: COLORS.orange,
+          }}
+        />
       </Link>
     );
   }
 
   return (
-    <div className="border-b" style={{ borderColor: COLORS.slate200 }}>
+    <div
+      className="border-b"
+      style={{
+        borderColor: COLORS.slate200,
+      }}
+    >
+      {/* Services Header */}
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         className="flex w-full items-center justify-between py-4 text-left text-base font-bold"
-        style={{ color: COLORS.navy }}
+        style={{
+          color: COLORS.navy,
+        }}
       >
         <span>{link.label}</span>
 
         <ChevronDown
           size={19}
           className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          style={{ color: COLORS.orange }}
+          style={{
+            color: COLORS.orange,
+          }}
         />
       </button>
 
+      {/* Mobile Services */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            initial={{
+              height: 0,
+              opacity: 0,
+            }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.2,
+            }}
             className="overflow-hidden"
           >
-            <div className="space-y-2 pb-4">
-              {link.children.map((service) => {
-                const Icon = service.icon || Building2;
+            <div className="space-y-1 pb-3">
+              {link.children.map((service) => (
+                <Link
+                  key={service.href}
+                  href={service.href}
+                  onClick={onNavigate}
+                  className="flex h-8 w-full items-center justify-between rounded-md px-3 transition-all duration-150 active:scale-[0.99]"
+                  style={{
+                    backgroundColor: COLORS.offWhite,
+                    color: COLORS.navy,
+                  }}
+                >
+                  {/* SERVICE NAME ONLY */}
+                  <span className="text-xs font-bold">{service.label}</span>
 
-                return (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    onClick={onNavigate}
-                    className="group flex gap-3 rounded-md border p-3"
+                  {/* Only navigation arrow */}
+                  <ArrowUpRight
+                    size={13}
+                    className="shrink-0"
                     style={{
-                      borderColor: COLORS.slate200,
-                      backgroundColor: COLORS.offWhite,
+                      color: COLORS.orange,
                     }}
-                  >
-                    <div
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md transition-colors duration-200"
-                      style={{
-                        backgroundColor: COLORS.slate100,
-                        color: COLORS.navy,
-                      }}
-                    >
-                      <Icon size={17} />
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-sm font-bold" style={{ color: COLORS.navy }}>
-                          {service.label}
-                        </span>
-
-                        <ArrowUpRight size={14} style={{ color: COLORS.orange }} />
-                      </div>
-
-                      <p className="mt-1 text-xs leading-5" style={{ color: COLORS.slate500 }}>
-                        {service.description}
-                      </p>
-                    </div>
-                  </Link>
-                );
-              })}
-
-              <Link
-                href="/services"
-                onClick={onNavigate}
-                className="mt-3 flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold text-white"
-                style={{ backgroundColor: COLORS.orange }}
-              >
-                View All Services
-                <ArrowUpRight size={16} />
-              </Link>
+                  />
+                </Link>
+              ))}
             </div>
           </motion.div>
         )}
@@ -395,6 +430,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -415,15 +451,20 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
+  /* Lock body scroll when mobile menu is open */
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
+
+      document.body.style.touchAction = "none";
     } else {
       document.body.style.overflow = "";
+      document.body.style.touchAction = "";
     }
 
     return () => {
       document.body.style.overflow = "";
+      document.body.style.touchAction = "";
     };
   }, [mobileOpen]);
 
@@ -475,43 +516,57 @@ export default function Navbar() {
             </span>
 
             <span>
-              <span className="block text-[10px] font-semibold uppercase tracking-wider" style={{ color: COLORS.slate500 }}>
+              <span
+                className="block text-[10px] font-semibold uppercase tracking-wider"
+                style={{
+                  color: COLORS.slate500,
+                }}
+              >
                 Call Us
               </span>
 
-              <span className="block text-sm font-bold" style={{ color: COLORS.navy }}>
+              <span
+                className="block text-sm font-bold"
+                style={{
+                  color: COLORS.navy,
+                }}
+              >
                 +91 99987 15799
               </span>
             </span>
           </a>
 
+          {/* GET CONSULTATION BUTTON - ORIGINAL THEME */}
           <Link
             href="/contact"
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full px-6 py-2.5 text-sm font-bold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-4"
-            style={{ backgroundColor: COLORS.orange }}
+            style={{
+              backgroundColor: COLORS.orange,
+            }}
           >
-            {/* Animated background */}
             <span
               className="absolute inset-0 translate-y-full rounded-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0"
-              style={{ backgroundColor: "#111111" }}
+              style={{
+                backgroundColor: "#111111",
+              }}
             />
 
-            {/* Text */}
             <span className="relative z-10 overflow-hidden">
               <span className="block transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
                 Get Consultation
               </span>
+
               <span className="absolute left-0 top-0 block translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0">
                 Get Started
               </span>
             </span>
 
-            {/* Arrow container */}
             <span className="relative z-10 flex h-5 w-5 items-center justify-center overflow-hidden">
               <ArrowUpRight
                 size={17}
                 className="absolute transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-6 group-hover:-translate-y-6"
               />
+
               <ArrowUpRight
                 size={17}
                 className="absolute -translate-x-6 translate-y-6 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:translate-y-0"
@@ -532,7 +587,51 @@ export default function Navbar() {
             color: COLORS.navy,
           }}
         >
-          {mobileOpen ? <X size={23} /> : <Menu size={23} />}
+          <AnimatePresence mode="wait" initial={false}>
+            {mobileOpen ? (
+              <motion.span
+                key="close"
+                initial={{
+                  opacity: 0,
+                  rotate: -90,
+                  scale: 0.8,
+                }}
+                animate={{
+                  opacity: 1,
+                  rotate: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  rotate: 90,
+                  scale: 0.8,
+                }}
+              >
+                <X size={23} />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="menu"
+                initial={{
+                  opacity: 0,
+                  rotate: 90,
+                  scale: 0.8,
+                }}
+                animate={{
+                  opacity: 1,
+                  rotate: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  rotate: -90,
+                  scale: 0.8,
+                }}
+              >
+                <Menu size={23} />
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </div>
 
@@ -540,21 +639,44 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <>
+            {/* Overlay */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
               onClick={closeMobileMenu}
               className="fixed inset-0 top-[78px] z-40 bg-[#03254C]/30 lg:hidden"
             />
 
+            {/* Scrollable Mobile Menu */}
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="fixed left-0 right-0 top-[78px] z-40 max-h-[calc(100vh-78px)] overflow-y-auto border-t bg-white px-5 pb-8 shadow-xl lg:hidden"
-              style={{ borderColor: COLORS.slate200 }}
+              initial={{
+                opacity: 0,
+                y: -10,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: -10,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
+              className="fixed left-0 right-0 top-[78px] z-40 h-[calc(100dvh-78px)] overflow-y-auto overscroll-contain border-t bg-white px-5 pb-8 shadow-xl lg:hidden"
+              style={{
+                borderColor: COLORS.slate200,
+                WebkitOverflowScrolling: "touch",
+                touchAction: "pan-y",
+              }}
             >
               <nav className="mx-auto max-w-2xl">
                 {NAV_LINKS.map((link) => (
@@ -581,11 +703,22 @@ export default function Navbar() {
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold" style={{ color: COLORS.slate500 }}>
+                      <p
+                        className="text-xs font-semibold"
+                        style={{
+                          color: COLORS.slate500,
+                        }}
+                      >
                         Speak With Our Team
                       </p>
 
-                      <a href="tel:+919998715799" className="mt-0.5 block text-sm font-bold" style={{ color: COLORS.navy }}>
+                      <a
+                        href="tel:+919998715799"
+                        className="mt-0.5 block text-sm font-bold"
+                        style={{
+                          color: COLORS.navy,
+                        }}
+                      >
                         +91 99987 15799
                       </a>
                     </div>
@@ -595,7 +728,9 @@ export default function Navbar() {
                     href="/contact"
                     onClick={closeMobileMenu}
                     className="mt-4 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3.5 text-sm font-bold text-white"
-                    style={{ backgroundColor: COLORS.orange }}
+                    style={{
+                      backgroundColor: COLORS.orange,
+                    }}
                   >
                     Get Free Consultation
                     <ArrowUpRight size={16} />
