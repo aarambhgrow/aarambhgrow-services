@@ -19,8 +19,8 @@ const EASE = [0.22, 1, 0.36, 1];
    Replace these with your actual website URLs
 ========================================================= */
 
-const ADVISORY_URL = "https://YOUR-ADVISORY-WEBSITE.com";
-const INFINITY_URL = "https://YOUR-INFINITY-WEBSITE.com";
+const ADVISORY_URL = "https://aarambhgrow.com";
+const INFINITY_URL = "https://aarambhgrow.tech";
 
 export default function CTASection() {
   const highlights = [
