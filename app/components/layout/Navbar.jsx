@@ -317,21 +317,6 @@ function DesktopNavItem({ link, onNavigate }) {
                     Business support for startups, MSMEs & entrepreneurs
                   </span>
                 </div>
-
-                <Link
-                  href="/services"
-                  onClick={() => {
-                    setOpen(false);
-                    onNavigate?.();
-                  }}
-                  className="flex items-center gap-1 text-xs font-bold"
-                  style={{
-                    color: COLORS.navy,
-                  }}
-                >
-                  View All
-                  <ArrowUpRight size={14} />
-                </Link>
               </div>
             </div>
           </motion.div>
