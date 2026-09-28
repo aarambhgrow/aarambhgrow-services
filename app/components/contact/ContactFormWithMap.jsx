@@ -298,6 +298,7 @@ export default function ContactFormWithMap() {
 
                     <input
                       id="phone"
+                      required
                       type="tel"
                       inputMode="tel"
                       placeholder="Enter your phone number"

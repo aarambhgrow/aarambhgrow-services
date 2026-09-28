@@ -27,8 +27,8 @@ const COLORS = {
    Replace these two URLs with your actual websites
 ========================================================= */
 
-const ADVISORY_URL = "https://YOUR-ADVISORY-WEBSITE.com";
-const INFINITY_URL = "https://YOUR-INFINITY-WEBSITE.com";
+const ADVISORY_URL = "https://aarambhgrow.com";
+const INFINITY_URL = "https://aarambhgrow.tech";
 
 /* =========================================================
    SERVICES
