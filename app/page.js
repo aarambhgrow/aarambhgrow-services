@@ -2,6 +2,7 @@ import Preloader from "./components/layout/Preloader";
 import Navbar from "./components/layout/Navbar";
 import Hero from "./components/home/Hero";
 import AboutSection from "./components/home/About";
+import HowWeHelp from "./components/home/HowWeHelp";
 import Services from "./components/home/Services";
 import WhyChooseUs from "./components/home/WhyChooseUs";
 import ProcessSection from "./components/home/Process";
@@ -9,117 +10,87 @@ import BusinessCategories from "./components/home/BusinessCategories";
 import CTASection from "./components/layout/CTA";
 import Footer from "./components/layout/Footer";
 import JsonLd from "./components/seo/JsonLd";
+import { BUSINESS_ADDRESS, FULL_ROBOTS, ORGANIZATION_ID, SITE_URL, pageMetadata } from "./lib/seo";
 
-export const metadata = {
-  title: "AarambhGrow – Business Funding, Loans & MSME Consultants",
+export const metadata = pageMetadata({
+  title: "Business Registration, Compliance & Funding Consultants India | AarambhGrow",
   description:
-    "Business funding, government schemes, MSME loans, startup funding, GST, company registration, compliance and business support services for startups and MSMEs across India.",
-  alternates: {
-    canonical: "https://aarambhgrow.co.in/",
-  },
-  openGraph: {
-    title: "AarambhGrow – Business Funding, Loans & MSME Consultants | India",
-    description:
-      "End-to-end business support for startups and MSMEs — government funding, business loans, startup funding, GST, registration and compliance.",
-    url: "https://aarambhgrow.co.in/",
-    type: "website",
-    images: [
-      {
-        url: "https://aarambhgrow.co.in/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "AarambhGrow – Business Funding and MSME Consultants",
+    "AarambhGrow supports startups and MSMEs across India with business registration, compliance, government schemes, funding guidance, certifications and growth advisory.",
+  path: "/",
+  robots: FULL_ROBOTS,
+  ogDescription: "Integrated support for business setup, compliance, government schemes, funding, certifications and growth.",
+  twitterTitle: "Business Registration, Compliance & Funding | AarambhGrow",
+  twitterDescription: "Business setup, compliance, funding, government scheme and growth advisory support for startups and MSMEs.",
+});
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "AarambhGrow Services Private Limited",
+      alternateName: "AarambhGrow",
+      url: `${SITE_URL}/`,
+      logo: `${SITE_URL}/images/white-logo.png`,
+      email: "info@aarambhgrow.co.in",
+      telephone: "+91-9998715799",
+      description:
+        "Business consultancy supporting startups and MSMEs with registration, compliance, funding guidance, government schemes, certifications and business growth services.",
+      address: BUSINESS_ADDRESS,
+      areaServed: { "@type": "Country", name: "India" },
+      sameAs: [
+        "https://www.facebook.com/aarambhgrow",
+        "https://www.instagram.com/aarambhgrow",
+        "https://www.linkedin.com/company/aarambhgrow-group-of-companies",
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#business`,
+      name: "AarambhGrow",
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/images/white-logo.png`,
+      telephone: "+91-9998715799",
+      email: "info@aarambhgrow.co.in",
+      address: BUSINESS_ADDRESS,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 23.0929,
+        longitude: 72.5247,
       },
-    ],
-  },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "19:00",
+        },
+      ],
+      areaServed: { "@type": "Country", name: "India" },
+      parentOrganization: { "@id": ORGANIZATION_ID },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "AarambhGrow",
+      publisher: { "@id": ORGANIZATION_ID },
+      inLanguage: "en-IN",
+    },
+  ],
 };
 
 export default function Home() {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "AarambhGrow Services Private Limited",
-    alternateName: "AarambhGrow",
-    url: "https://aarambhgrow.co.in",
-    logo: "https://aarambhgrow.co.in/images/white-logo.png",
-    description:
-      "AarambhGrow provides business funding, government scheme support, MSME loans, startup funding, company registration, GST, compliance and business support services.",
-    foundingDate: "2020",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway",
-      addressLocality: "Ahmedabad",
-      addressRegion: "Gujarat",
-      postalCode: "380060",
-      addressCountry: "IN",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+91-9998715799",
-      contactType: "customer service",
-      areaServed: "IN",
-      availableLanguage: ["English", "Hindi", "Gujarati"],
-    },
-    sameAs: [
-      "https://www.facebook.com/aarambhgrow",
-      "https://www.instagram.com/aarambhgrow",
-      "https://www.linkedin.com/company/aarambhgrow-group-of-companies",
-    ],
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "AarambhGrow Services Private Limited",
-    image: "https://aarambhgrow.co.in/images/white-logo.png",
-    url: "https://aarambhgrow.co.in",
-    telephone: "+91-9998715799",
-    email: "info@aarambhgrow.co.in",
-    priceRange: "₹₹",
-    description:
-      "Business funding, government schemes, MSME loans, startup funding, company registration, GST, compliance and business support services for startups and MSMEs.",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway",
-      addressLocality: "Ahmedabad",
-      addressRegion: "Gujarat",
-      postalCode: "380060",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 23.0929,
-      longitude: 72.5247,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "09:00",
-        closes: "19:00",
-      },
-    ],
-    areaServed: ["Ahmedabad", "Surat", "Vadodara"],
-  };
-
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "AarambhGrow Services Private Limited",
-    url: "https://aarambhgrow.co.in",
-    description: "Business funding, loans, government schemes and MSME support services in India.",
-  };
-
   return (
     <main className="min-h-screen bg-white font-sans antialiased">
-      <JsonLd data={organizationSchema} />
-      <JsonLd data={localBusinessSchema} />
-      <JsonLd data={websiteSchema} />
+      <JsonLd data={homeSchema} />
 
       <Preloader />
       <Navbar />
       <Hero />
       <AboutSection />
+      <HowWeHelp />
       <Services />
       <WhyChooseUs />
       <ProcessSection />

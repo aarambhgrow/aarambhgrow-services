@@ -58,7 +58,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "AarambhGrow Services Private Limited",
+    siteName: "AarambhGrow",
     title: "AarambhGrow – Business Funding, Loans & MSME Consultants",
     description:
       "End-to-end business support for startups and MSMEs — government funding, business loans, startup funding, GST, registration, compliance and more.",

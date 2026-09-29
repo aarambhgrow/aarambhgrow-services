@@ -3,50 +3,30 @@ import Hero from "../../components/services/cgtmse/CGTMSEHero";
 import CGTMSE from "../../components/services/cgtmse/CGTMSE";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "CGTMSE Loan & Credit Guarantee Support Services – AarambhGrow",
-  description:
-    "Get structured support for CGTMSE-backed business finance with AarambhGrow. Understand eligibility, documentation, credit guarantee requirements, and loan application readiness.",
-};
+const SLUG = "cgtmse";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function CGTMSEPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "CGTMSE Loan & Credit Guarantee Support Services",
-    serviceType: "CGTMSE Loan Support",
-    description:
-      "Structured support for CGTMSE-backed business finance, including eligibility assessment, documentation, credit guarantee requirements, and loan application readiness.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <CGTMSE />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

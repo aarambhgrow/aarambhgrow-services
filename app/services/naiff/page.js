@@ -3,50 +3,30 @@ import Hero from "../../components/services/naiff/NAIFFHero";
 import NAIFF from "../../components/services/naiff/NAIFF";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "NAIFF Funding Support Services – AarambhGrow",
-  description:
-    "Get structured support for NAIFF funding with AarambhGrow. Understand eligibility, funding requirements, documentation, project readiness, and application preparation for your business.",
-};
+const SLUG = "naiff";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function NAIFFPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "NAIFF Funding Support Services",
-    serviceType: "NAIFF Funding",
-    description:
-      "Structured support for NAIFF funding applications, including eligibility assessment, documentation, project requirements, funding readiness, and application preparation.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <NAIFF />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

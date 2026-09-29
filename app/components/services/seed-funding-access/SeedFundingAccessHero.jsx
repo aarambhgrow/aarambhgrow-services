@@ -63,7 +63,7 @@ export default function SeedFundingAccess() {
 
           {/* Heading */}
           <h1 className="max-w-[680px] text-[24px] font-extrabold leading-[1.15] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]">
-            Get Your Startup Ready for <span className="text-[#157327]">Seed Investors</span>
+            Prepare Your Startup for <span className="text-[#157327]">Seed-Stage Fundraising</span>
           </h1>
 
           {/* Accent Divider */}

@@ -63,8 +63,7 @@ export default function GovernmentGrants() {
 
           {/* Heading */}
           <h1 className="max-w-[680px] text-[24px] font-extrabold leading-[1.15] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]">
-            Discover Government Grant Opportunities for{" "}
-            <span className="text-[#157327]">Your Business</span>
+            Government Grant & Subsidy Support for{" "}<span className="text-[#157327]">Businesses</span>
           </h1>
 
           {/* Accent Line */}

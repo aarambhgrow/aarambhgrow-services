@@ -87,7 +87,7 @@ export default function Hero() {
 
             {/* SEO H1 */}
             <h1 className="animate-slow-fade-2 text-2xl font-extrabold leading-[1.2] tracking-tight text-[#03254C] sm:text-3xl sm:leading-[1.12] lg:text-[42px] xl:text-[46px]">
-              Business Registration & Compliance Consultants for
+              Business Registration, Compliance & Funding Consultants for
               <br className="hidden sm:inline" />
               <span className="text-[#F26522]"> Startups and MSMEs</span>
             </h1>
@@ -99,13 +99,11 @@ export default function Hero() {
 
             {/* DESCRIPTION */}
             <p className="animate-slow-fade-3 max-w-lg text-xs font-normal leading-relaxed text-[#475569] sm:text-sm">
-              AarambhGrow Services Private Limited provides end-to-end
-              business solutions covering business registration, compliance,
-              government schemes, financial consulting, certifications,
-              digital marketing, and business growth strategies. We help
-              startups, MSMEs, and enterprises navigate essential business
-              requirements and build a stronger foundation for sustainable
-              growth.
+              AarambhGrow Services Private Limited helps startups, MSMEs and
+              growing businesses manage business registration, regulatory
+              compliance, government schemes, funding preparation,
+              certifications and growth requirements through one structured
+              advisory and execution process.
             </p>
 
             {/* CTA BUTTONS */}

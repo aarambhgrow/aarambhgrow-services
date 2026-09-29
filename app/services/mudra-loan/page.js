@@ -3,50 +3,30 @@ import Hero from "../../components/services/mudra-loan/MudraLoanHero";
 import MudraLoan from "../../components/services/mudra-loan/MudraLoan";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "Mudra Loan Support Services – AarambhGrow",
-  description:
-    "Get structured support for Mudra Loans with AarambhGrow. Understand eligibility, loan requirements, documentation, funding needs, and application readiness for your business.",
-};
+const SLUG = "mudra-loan";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function MudraLoanPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Mudra Loan Support Services",
-    serviceType: "Mudra Loan",
-    description:
-      "Structured support for Mudra Loan applications, including eligibility assessment, documentation, funding requirements, and loan application readiness for businesses.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <MudraLoan />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

@@ -10,6 +10,9 @@ export const metadata = {
   title: "Contact AarambhGrow – Free Business Consultation | Ahmedabad, Gujarat",
   description:
     "Contact AarambhGrow for a free business consultation in Ahmedabad, Gujarat. Get expert support for business registration, compliance, finance, legal, and growth services.",
+  alternates: {
+    canonical: "https://aarambhgrow.co.in/contact",
+  },
 };
 
 export default function ContactPage() {
@@ -21,7 +24,7 @@ export default function ContactPage() {
     telephone: "+91-9998715799",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway,",
+      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway",
       addressLocality: "Ahmedabad",
       addressRegion: "Gujarat",
       postalCode: "380060",

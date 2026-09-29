@@ -8,60 +8,23 @@ import FAQ from "../components/layout/FAQ";
 import CTASection from "../components/layout/CTA";
 import Footer from "../components/layout/Footer";
 import JsonLd from "../components/seo/JsonLd";
+import { SITE_URL, breadcrumbList, pageMetadata, STANDARD_ROBOTS } from "../lib/seo";
 
-export const metadata = {
-  title: "About AarambhGrow – Trusted Business Consultants in Gujarat",
-
+export const metadata = pageMetadata({
+  title: "About AarambhGrow | Business Consultants in Ahmedabad & India",
   description:
-    "Learn about AarambhGrow's team of expert consultants helping startups and MSMEs with registration, compliance, and growth across India.",
-
-  alternates: {
-    canonical: "https://aarambhgrow.co.in/about",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-  openGraph: {
-    title: "About AarambhGrow – Trusted Business Consultants in Gujarat",
-
-    description:
-      "Learn about AarambhGrow's team of expert consultants helping startups and MSMEs with registration, compliance, and growth across India.",
-
-    url: "https://aarambhgrow.co.in/about",
-
-    type: "website",
-  },
-};
+    "Learn about AarambhGrow Services Private Limited, an Ahmedabad-based business consultancy supporting startups and MSMEs with funding, compliance, registrations and growth advisory.",
+  path: "/about",
+  ogDescription: "Integrated business consulting, funding, compliance and growth support for startups and MSMEs.",
+  robots: STANDARD_ROBOTS,
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
-
-  "@type": "BreadcrumbList",
-
-  itemListElement: [
-    {
-      "@type": "ListItem",
-
-      position: 1,
-
-      name: "Home",
-
-      item: "https://aarambhgrow.co.in/",
-    },
-
-    {
-      "@type": "ListItem",
-
-      position: 2,
-
-      name: "About Us",
-
-      item: "https://aarambhgrow.co.in/about",
-    },
-  ],
+  ...breadcrumbList([
+    ["Home", `${SITE_URL}/`],
+    ["About AarambhGrow", `${SITE_URL}/about`],
+  ]),
 };
 
 export default function AboutPage() {

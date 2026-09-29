@@ -61,8 +61,7 @@ export default function StartupSeedFund() {
 
           {/* Headline */}
           <h1 className="max-w-[680px] text-[24px] font-extrabold leading-[1.15] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]">
-            Turn Your Startup Idea Into{" "}
-            <span className="text-[#157327]">Fundable Business</span>
+            Turn Your Startup Idea Into a{" "}<span className="text-[#157327]">Fundable Business</span>
           </h1>
 
           <div className="mt-2 h-[3px] w-12 rounded-full bg-gradient-to-r from-[#F26522] to-[#157327] sm:mt-3" />

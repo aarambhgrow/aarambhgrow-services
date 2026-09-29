@@ -61,7 +61,7 @@ export default function TextileFund() {
 
           {/* Heading */}
           <h1 className="max-w-[680px] text-[24px] font-extrabold leading-[1.15] tracking-[-0.025em] text-[#03254C] sm:text-[36px] lg:text-[38px]">
-            Empower Your Textile Business With <span className="text-[#157327]">Dedicated Fund Support</span>
+            Textile Funding & <span className="text-[#157327]">Finance Support</span>
           </h1>
 
           {/* Accent Line */}

@@ -3,50 +3,30 @@ import Hero from "../../components/services/sisfs/SISFSHero";
 import SISFS from "../../components/services/sisfs/SISFS";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "Startup India Seed Fund Scheme (SISFS) Support – AarambhGrow",
-  description:
-    "Get structured support for the Startup India Seed Fund Scheme (SISFS) with AarambhGrow. Understand eligibility, funding requirements, documentation, startup readiness, and application preparation.",
-};
+const SLUG = "sisfs";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function SISFSPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Startup India Seed Fund Scheme (SISFS) Support Services",
-    serviceType: "SISFS Funding",
-    description:
-      "Structured support for eligible startups seeking assistance under the Startup India Seed Fund Scheme, including eligibility assessment, funding requirements, documentation, startup readiness, and application preparation.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <SISFS />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

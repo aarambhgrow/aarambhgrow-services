@@ -3,50 +3,30 @@ import Hero from "../../components/services/pmegp-loan/PMEGPLoanHero";
 import PMEGPLoan from "../../components/services/pmegp-loan/PMEGPLoan";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "PMEGP Loan Support Services – AarambhGrow",
-  description:
-    "Get structured support for PMEGP loans with AarambhGrow. Understand eligibility, subsidy requirements, documentation, project planning, and application readiness for your business.",
-};
+const SLUG = "pmegp-loan";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function PMEGPLoanPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "PMEGP Loan Support Services",
-    serviceType: "PMEGP Loan",
-    description:
-      "Structured support for PMEGP loan applications, including eligibility assessment, project planning, documentation, subsidy requirements, and application readiness.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <PMEGPLoan />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

@@ -160,7 +160,7 @@
             />
           </div>
           <div className="flex flex-col items-start md:items-center text-left md:text-center">
-            <h1
+            <p
               className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-wide leading-none"
               style={{
                 fontFamily: "'Cinzel', serif",
@@ -168,8 +168,8 @@
                 letterSpacing: "0.05em",
               }}
             >
-              AarambhGrow 
-            </h1>
+              AarambhGrow
+            </p>
             <p
               className="mt-2 text-lg md:text-xl leading-none"
               style={{

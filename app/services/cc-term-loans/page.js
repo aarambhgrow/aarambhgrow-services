@@ -3,50 +3,30 @@ import Hero from "../../components/services/cc-term-loans/CCTermLoansHero";
 import CCTermLoans from "../../components/services/cc-term-loans/CCTermLoans";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "CC & Term Loan Services – AarambhGrow",
-  description:
-    "Get structured support for Cash Credit (CC) and Term Loans with AarambhGrow. Understand eligibility, documentation, funding requirements, and application readiness for business finance.",
-};
+const SLUG = "cc-term-loans";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function CCTermLoansPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "CC & Term Loan Services",
-    serviceType: "Business Loans & Working Capital Finance",
-    description:
-      "Structured support for Cash Credit (CC) and Term Loans, including eligibility assessment, documentation, funding requirements, and application readiness.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <CCTermLoans />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

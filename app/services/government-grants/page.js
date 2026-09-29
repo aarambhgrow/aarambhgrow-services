@@ -3,50 +3,30 @@ import Hero from "../../components/services/government-grants/GovernmentGrantsHe
 import GovernmentGrants from "../../components/services/government-grants/GovernmentGrants";
 import CTASection from "../../components/layout/CTA";
 import Footer from "../../components/layout/Footer";
+import JsonLd from "../../components/seo/JsonLd";
+import ServiceFaq from "../../components/seo/ServiceFaq";
+import RelatedServices from "../../components/seo/RelatedServices";
+import { getFundingService, serviceJsonLd, serviceMetadata } from "../../lib/seo";
 
-export const metadata = {
-  title: "Government Grants Support Services – AarambhGrow",
-  description:
-    "Get structured support for government grants with AarambhGrow. Understand suitable schemes, eligibility, documentation, funding requirements, and application readiness for your business.",
-};
+const SLUG = "government-grants";
+
+export const metadata = serviceMetadata(SLUG);
 
 export default function GovernmentGrantsPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Government Grants Support Services",
-    serviceType: "Government Grants",
-    description:
-      "Structured support for identifying suitable government grants, understanding eligibility, preparing documentation, and improving application readiness for businesses.",
-    provider: {
-      "@type": "Organization",
-      name: "AarambhGrow",
-      url: "https://aarambhgrow.co.in",
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-  };
-
   return (
     <>
+      <JsonLd data={serviceJsonLd(SLUG)} />
       <Navbar />
 
       <main className="min-h-screen">
         <Hero />
         <GovernmentGrants />
+        <ServiceFaq slug={SLUG} faqs={getFundingService(SLUG).faqs} />
+        <RelatedServices currentSlug={SLUG} />
         <CTASection />
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
     </>
   );
 }

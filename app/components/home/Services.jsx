@@ -188,16 +188,14 @@
           "@type": "Service",
           name: service.label,
           description: service.description,
-          url: `https://www.aarambhgrow.com${service.href}`,
+          url: `https://aarambhgrow.co.in${service.href}`,
           serviceType: service.category,
           areaServed: {
             "@type": "Country",
             name: "India",
           },
           provider: {
-            "@type": "Organization",
-            name: "AarambhGrow",
-            url: "https://www.aarambhgrow.com",
+            "@id": "https://aarambhgrow.co.in/#organization",
           },
         },
       })),

@@ -27,7 +27,7 @@ export default function PMFMEP() {
 
           {/* Heading */}
           <h1 className="text-[24px] font-extrabold leading-[1.15] tracking-[-0.025em] text-[#03254C] sm:text-[34px] lg:text-[36px]">
-            Get Your Startup Ready for <span className="text-[#157327]">Seed Investors</span>
+            PMFME Support for <span className="text-[#157327]">Micro Food Processing Enterprises</span>
           </h1>
 
           {/* Accent Line */}
