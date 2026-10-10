@@ -305,7 +305,7 @@ export default function ServiceDetails({ data, slug, intro = {}, faqs: faqsProp 
             <p className="mt-3 text-sm leading-7 text-slate-600">{intro.text || entry.description}</p>
           </div>
 
-          <div className="h-fit rounded-xl border border-slate-200 bg-white p-5 lg:sticky lg:top-24 lg:col-span-4">
+          <div className="h-fit rounded-xl border border-slate-200 bg-white p-5 lg:sticky lg:top-[calc(6rem+var(--offer-bar-h,0px))] lg:col-span-4">
             {category && <p className="text-[11px] font-bold uppercase tracking-wider text-[#F26522]">{category}</p>}
 
             <h3 className="mt-1 text-base font-bold text-[#03254C]">{label}</h3>
@@ -333,7 +333,7 @@ export default function ServiceDetails({ data, slug, intro = {}, faqs: faqsProp 
         {/* Tabbed detail */}
         {tabs.length > 0 && (
           <div className="mt-10">
-            <div className="sticky top-16 z-20 -mx-5 border-b border-slate-200 bg-[#fafafa]/95 px-5 backdrop-blur-sm sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
+            <div className="sticky top-[calc(4rem+var(--offer-bar-h,0px))] z-20 -mx-5 border-b border-slate-200 bg-[#fafafa]/95 px-5 backdrop-blur-sm sm:-mx-8 sm:px-8 lg:-mx-10 lg:px-10">
               <div role="tablist" className="flex gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {tabs.map((tab, index) => {
                   const isActive = tab === current;

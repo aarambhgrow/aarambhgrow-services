@@ -569,7 +569,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b transition-all duration-300"
+      className="sticky top-[var(--offer-bar-h,0px)] z-50 w-full border-b transition-all duration-300"
       style={{
         backgroundColor: "rgba(255,255,255,0.97)",
         borderColor: scrolled ? COLORS.slate200 : "transparent",
@@ -770,7 +770,7 @@ export default function Navbar() {
                 opacity: 0,
               }}
               onClick={closeMobileMenu}
-              className="fixed inset-0 top-[78px] z-40 bg-[#03254C]/30 lg:hidden"
+              className="fixed inset-0 top-[calc(78px+var(--offer-bar-h,0px))] z-40 bg-[#03254C]/30 lg:hidden"
             />
 
             {/* Scrollable Mobile Menu */}
@@ -790,7 +790,7 @@ export default function Navbar() {
               transition={{
                 duration: 0.2,
               }}
-              className="fixed left-0 right-0 top-[78px] z-40 h-[calc(100dvh-78px)] overflow-y-auto overscroll-contain border-t bg-white px-5 pb-8 shadow-xl lg:hidden"
+              className="fixed left-0 right-0 top-[calc(78px+var(--offer-bar-h,0px))] z-40 h-[calc(100dvh-78px-var(--offer-bar-h,0px))] overflow-y-auto overscroll-contain border-t bg-white px-5 pb-8 shadow-xl lg:hidden"
               style={{
                 borderColor: COLORS.slate200,
                 WebkitOverflowScrolling: "touch",
