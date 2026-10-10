@@ -4,6 +4,10 @@ import { ReactLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
+import { NAVRATRI } from "./data/navratri";
+import NavratriOfferBar from "./components/navratri/NavratriOfferBar";
+import NavratriProvider from "./components/navratri/NavratriProvider";
+
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
   const lenisRef = useRef(null);
@@ -29,7 +33,11 @@ export default function ClientLayout({ children }) {
         wheelMultiplier: 0.85,
       }}
     >
-      {children}
+      {/* Seasonal layer; renders the children untouched outside Navratri (app/data/navratri.js). */}
+      <NavratriProvider>
+        {NAVRATRI.enabled && <NavratriOfferBar />}
+        {children}
+      </NavratriProvider>
     </ReactLenis>
   );
 }

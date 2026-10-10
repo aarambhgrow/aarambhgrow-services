@@ -541,7 +541,7 @@ export default function ContactFormWithMap() {
                     <h4 className="text-xs font-black text-[#03254C] sm:text-sm">AarambhGrow Services Private Limited</h4>
 
                     <p className="mt-1 text-[10px] leading-5 text-slate-600 sm:text-[11px]">
-                      813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway, Ahmedabad, Gujarat, 380060
+                      Silver Radiance 4, 813, Sarkhej - Gandhinagar Hwy, Gota, Ahmedabad, Gujarat 380060
                     </p>
                   </div>
                 </div>

@@ -277,7 +277,7 @@ export default function ContactMainSection() {
                     <span className="block text-[9px] font-bold uppercase tracking-wider text-slate-500">Visit Our Office</span>
 
                     <p className="mt-0.5 break-words text-[11px] font-semibold leading-[1.55] text-[#03254C]">
-                      813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway, Ahmedabad, Gujarat, 380060
+                      Silver Radiance 4, 813, Sarkhej - Gandhinagar Hwy, Gota, Ahmedabad, Gujarat 380060
                     </p>
                   </div>
                 </div>

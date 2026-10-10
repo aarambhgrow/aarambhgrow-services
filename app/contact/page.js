@@ -24,7 +24,7 @@ export default function ContactPage() {
     telephone: "+91-9998715799",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway",
+      streetAddress: "Silver Radiance 4, 813, Sarkhej - Gandhinagar Hwy, Gota",
       addressLocality: "Ahmedabad",
       addressRegion: "Gujarat",
       postalCode: "380060",

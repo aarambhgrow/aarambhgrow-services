@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Building2, ArrowUpRight } from "lucide-react";
 
+import { NavratriGreeting } from "../navratri/NavratriAccents";
+
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -275,7 +277,7 @@ export default function Footer() {
               className="space-y-3.5 rounded-md border border-white/10 bg-white/[0.04] p-4 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
             >
               <p className="text-xs leading-[1.7] text-slate-300">
-                813, Silver Radiance 4, Ovnaj, Bhavik Publication, SG Highway, Ahmedabad, Gujarat, 380060
+                Silver Radiance 4, 813, Sarkhej - Gandhinagar Hwy, Gota, Ahmedabad, Gujarat 380060
               </p>
 
               <motion.a
@@ -412,6 +414,8 @@ export default function Footer() {
       <div className="relative z-10 bg-[#051120] py-4">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 text-center text-xs text-slate-500 sm:flex-row sm:justify-between sm:px-6 sm:text-left lg:px-8">
           <p>© {currentYear} AarambhGrow Services Pvt. Ltd. All rights reserved.</p>
+
+          <NavratriGreeting />
 
           <div className="flex justify-center gap-5">
             <a
