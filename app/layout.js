@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
+import { DIWALI } from "./data/diwali";
+import { diwaliHeadScript } from "./lib/diwali";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,7 +84,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    // suppressHydrationWarning: the Diwali head script adds attributes to <html> before React loads.
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      {DIWALI.enabled && (
+        <head>
+          <script dangerouslySetInnerHTML={{ __html: diwaliHeadScript() }} />
+        </head>
+      )}
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <ClientLayout>{children}</ClientLayout>
       </body>
