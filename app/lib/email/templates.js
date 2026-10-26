@@ -69,7 +69,7 @@ function messageBlock(message) {
   </div>`;
 }
 
-export function contactAdminEmail({ fullName, email, phone, subject, message }) {
+export function contactAdminEmail({ fullName, email, phone, subject, message, consentNote }) {
   const safeEmail = escapeHtml(email);
   return layout({
     preheader: `New inquiry from ${fullName}`,
@@ -81,6 +81,7 @@ export function contactAdminEmail({ fullName, email, phone, subject, message }) 
         ${row("Email", `<a href="mailto:${safeEmail}" style="color:#F26522;">${safeEmail}</a>`)}
         ${row("Phone", escapeHtml(phone || "Not provided"))}
         ${row("Subject", escapeHtml(subject || "Not selected"))}
+        ${row("Consent", escapeHtml(consentNote))}
       </table>
       <h3 style="margin:25px 0 12px;color:#03254C;">Message</h3>
       ${messageBlock(message)}

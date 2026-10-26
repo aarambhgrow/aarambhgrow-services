@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, MotionConfig } from "framer-motion";
 import { Lock, ArrowRight, CheckCircle2, XCircle, MapPin, Sparkles } from "lucide-react";
 
@@ -11,6 +12,7 @@ export default function ContactFormWithMap() {
     phone: "",
     subject: "",
     message: "",
+    consent: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -104,6 +106,7 @@ export default function ContactFormWithMap() {
         phone: "",
         subject: "",
         message: "",
+        consent: false,
       });
     } catch (error) {
       console.error("Submit error:", error);
@@ -195,7 +198,10 @@ export default function ContactFormWithMap() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section id="contact-form" className="w-full overflow-hidden bg-[#f8fafc] py-6 font-sans text-[#03254C] sm:py-8 lg:py-10">
+      <section
+        id="contact-form"
+        className="w-full overflow-hidden bg-[#f8fafc] py-6 font-sans text-[#03254C] sm:py-8 lg:py-10"
+      >
         {/* =====================================================
             SAME WIDTH SYSTEM AS PREVIOUS SECTIONS
         ===================================================== */}
@@ -367,11 +373,45 @@ export default function ContactFormWithMap() {
                   />
                 </motion.div>
 
+                {/* CONSENT */}
+
+                <motion.div variants={fieldVariants}>
+                  <label className="flex cursor-pointer items-start gap-2.5 text-[11px] leading-relaxed text-slate-600">
+                    <input
+                      type="checkbox"
+                      checked={formData.consent}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          consent: e.target.checked,
+                        })
+                      }
+                      className="mt-0.5 h-3.5 w-3.5 shrink-0 cursor-pointer accent-[#F26522]"
+                      required
+                    />
+                    <span>
+                      I agree to be contacted by AarambhGrow Services Private Limited by call, WhatsApp or email about
+                      this enquiry, as described in the{" "}
+                      <Link
+                        href="/privacy-policy"
+                        target="_blank"
+                        className="font-semibold text-[#157327] underline hover:text-[#F26522]"
+                      >
+                        Privacy Policy
+                      </Link>
+                      .
+                    </span>
+                  </label>
+                </motion.div>
+
                 {/* =================================================
                     BUTTON + PRIVACY
                 ================================================= */}
 
-                <motion.div variants={fadeUp} className="flex flex-col gap-4 pt-1 sm:flex-row sm:items-center sm:justify-between">
+                <motion.div
+                  variants={fadeUp}
+                  className="flex flex-col gap-4 pt-1 sm:flex-row sm:items-center sm:justify-between"
+                >
                   <motion.button
                     whileHover={{
                       y: -2,
@@ -483,11 +523,11 @@ export default function ContactFormWithMap() {
                   duration: 1.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                    title="AarambhGrow Services Private Limited Location Map"
-                    src="https://www.google.com/maps?q=813%2C%20Silver%20Radiance%204%2C%20Ovnaj%2C%20Bhavik%20Publication%2C%20SG%20Highway%2C%20Ahmedabad%2C%20Gujarat%2C%20380060&output=embed"
-                    className="absolute inset-0 h-full w-full border-0 invert brightness-90 contrast-125"
-                    loading="lazy"
-                  />
+                title="AarambhGrow Services Private Limited Location Map"
+                src="https://www.google.com/maps?q=813%2C%20Silver%20Radiance%204%2C%20Ovnaj%2C%20Bhavik%20Publication%2C%20SG%20Highway%2C%20Ahmedabad%2C%20Gujarat%2C%20380060&output=embed"
+                className="absolute inset-0 h-full w-full border-0 invert brightness-90 contrast-125"
+                loading="lazy"
+              />
 
               {/* MAP OVERLAY */}
 
@@ -538,7 +578,9 @@ export default function ContactFormWithMap() {
                   </div>
 
                   <div className="min-w-0">
-                    <h4 className="text-xs font-black text-[#03254C] sm:text-sm">AarambhGrow Services Private Limited</h4>
+                    <h4 className="text-xs font-black text-[#03254C] sm:text-sm">
+                      AarambhGrow Services Private Limited
+                    </h4>
 
                     <p className="mt-1 text-[10px] leading-5 text-slate-600 sm:text-[11px]">
                       Silver Radiance 4, 813, Sarkhej - Gandhinagar Hwy, Gota, Ahmedabad, Gujarat 380060

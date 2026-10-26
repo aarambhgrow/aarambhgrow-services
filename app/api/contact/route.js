@@ -26,13 +26,24 @@ export async function POST(request) {
       );
     }
 
+    // DPDP: contact only with an explicit, recorded consent.
+    if (body.consent !== true) {
+      return Response.json(
+        { success: false, message: "Please accept the consent to submit." },
+        { status: 400 },
+      );
+    }
+
+    const consentNote = `Agreed to be contacted about this enquiry via the website form, ${new Date().toISOString()}`;
+
     // The lead is captured if either the LMS or the admin email accepts it.
     const [leadSaved, { data, error }] = await Promise.all([
       pushLeadToLms({
         name: fullName,
         email,
         phone,
-        message: subject ? `[${subject}] ${message}` : message,
+        // The LMS has no consent field yet, so the consent record travels in the message.
+        message: `${subject ? `[${subject}] ` : ""}${message}\n\n[Consent] ${consentNote}`,
       }),
       resend.emails.send({
         from: process.env.CONTACT_FROM_EMAIL,
@@ -41,7 +52,7 @@ export async function POST(request) {
         subject: subject
           ? `New Contact Inquiry - ${subject}`
           : "New Contact Inquiry - AarambhGrow Services Private Limited",
-        html: contactAdminEmail({ fullName, email, phone, subject, message }),
+        html: contactAdminEmail({ fullName, email, phone, subject, message, consentNote }),
       }),
     ]);
 
