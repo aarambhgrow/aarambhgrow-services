@@ -128,6 +128,10 @@ const NAV_LINKS = [
     children: SERVICES,
   },
   {
+    label: "Blog",
+    href: "/blogs",
+  },
+  {
     label: "Contact",
     href: "/contact",
   },

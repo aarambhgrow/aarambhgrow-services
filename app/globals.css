@@ -44,6 +44,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Lenis drives smooth scrolling itself; native smooth scroll makes it stall. */
+html.lenis {
+  scroll-behavior: auto;
+}
+
 /*
   Diwali (app/data/diwali.js). The head script marks <html> before the first
   paint; these rules keep every Diwali piece hidden until it does.
