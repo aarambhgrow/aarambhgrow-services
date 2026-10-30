@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import { DIWALI } from "./data/diwali";
@@ -98,6 +99,16 @@ export default function RootLayout({ children }) {
       )}
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <ClientLayout>{children}</ClientLayout>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-EM96DTH4FJ" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-EM96DTH4FJ');
+          `}
+        </Script>
       </body>
     </html>
   );
